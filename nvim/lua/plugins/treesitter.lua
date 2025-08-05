@@ -19,6 +19,7 @@ return {
           "javascript",
           "typescript",
           "c",
+          "c_sharp",
           "lua",
           "rust",
           "jsdoc",
