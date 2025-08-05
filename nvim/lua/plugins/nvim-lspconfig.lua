@@ -39,6 +39,9 @@ return {
     require("mason-lspconfig").setup({
       ensure_installed = {
         "lua_ls",
+        "omnisharp",
+        "powershell_es",
+        "pyright",
         "rust_analyzer",
       },
       handlers = {
