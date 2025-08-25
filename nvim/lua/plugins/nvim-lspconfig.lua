@@ -32,12 +32,13 @@ return {
     local cmp = require("cmp")
     local cmp_lsp = require("cmp_nvim_lsp")
     local capabilities =
-      vim.tbl_deep_extend("force", {}, vim.lsp.protocol.make_client_capabilities(), cmp_lsp.default_capabilities())
+        vim.tbl_deep_extend("force", {}, vim.lsp.protocol.make_client_capabilities(), cmp_lsp.default_capabilities())
 
     require("fidget").setup({})
     require("mason").setup()
     require("mason-lspconfig").setup({
       ensure_installed = {
+        "csharp_ls",
         "lua_ls",
         "omnisharp",
         "powershell_es",
@@ -84,6 +85,16 @@ return {
               },
             },
           })
+        end,
+        ["omnisharp"] = function()
+          local lspconfig = require("lspconfig")
+          lspconfig.omnisharp.setup {
+            filetypes = { "cs" },
+            root_dir = require('lspconfig.util').root_pattern("*.sln", ".git"),
+            settings = {
+              -- Add any specific OmniSharp settings here if needed
+            }
+          }
         end,
       },
     })
