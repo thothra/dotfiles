@@ -25,6 +25,9 @@ return {
           "jsdoc",
           "bash",
           "go",
+          "gdscript",
+          "godot_resource",
+          "gdshader",
         },
 
         -- Install parsers synchronously (only applied to `ensure_installed`)
